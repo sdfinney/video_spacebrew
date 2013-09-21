@@ -8,7 +8,7 @@ void testApp::setup(){
     
    spacebrew.addPublish("button", Spacebrew::TYPE_BOOLEAN);
     spacebrew.addSubscribe("backgroundOn", Spacebrew::TYPE_BOOLEAN); //"boolean" ); // just typing "boolean" also works
-    spacebrew.connect( host, name, description );
+    //spacebrew.connect( host, name, description );
     
     //Spacebrew::addListener(this, spacebrew);
     
