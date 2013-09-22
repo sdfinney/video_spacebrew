@@ -22,7 +22,7 @@ class testApp : public ofBaseApp{
    Spacebrew::Connection spacebrew;
     
     // listen to spacebrew Messages
-    //void onMessage( Spacebrew::Message & m );
+    void onMessage( Spacebrew::Message & m );
 	//	void windowResized(int w, int h);
 	//	void dragEvent(ofDragInfo dragInfo);
 	//	void gotMessage(ofMessage msg);

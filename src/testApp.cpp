@@ -3,17 +3,16 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 	string host = Spacebrew::SPACEBREW_CLOUD; // "localhost";
-    string name = "of-button-example";
-    string description = "It's amazing";
+    string name = "video";
+    string description = "please work";
     
    spacebrew.addPublish("button", Spacebrew::TYPE_BOOLEAN);
     spacebrew.addSubscribe("backgroundOn", Spacebrew::TYPE_BOOLEAN); //"boolean" ); // just typing "boolean" also works
-    //spacebrew.connect( host, name, description );
+    spacebrew.connect( host, name, description );
     
     //Spacebrew::addListener(this, spacebrew);
     
     ofBackground(255,255,255);
-	ofSetVerticalSync(true);
 	frameByframe = false;
     
 
@@ -34,14 +33,23 @@ void testApp::draw(){
 
 
 
+}
+
+//--------------------------------------------------------------
+void testApp::onMessage( Spacebrew::Message & m ){
+    if ( m.name == "backgroundOn" ){
+        frameByframe = m.valueBoolean();
     }
+}
+
 
 //--------------------------------------------------------------
 void testApp::keyPressed  (int key){
     switch(key){
         case 'f':
-            frameByframe=!frameByframe;
+            frameByframe=true;
             angerman.setPaused(frameByframe);
+            spacebrew.sendBoolean("button", true);
 
 
 
