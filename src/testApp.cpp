@@ -10,7 +10,7 @@ void testApp::setup(){
     spacebrew.addSubscribe("backgroundOn", Spacebrew::TYPE_BOOLEAN); //"boolean" ); // just typing "boolean" also works
     spacebrew.connect( host, name, description );
     
-    //Spacebrew::addListener(this, spacebrew);
+    Spacebrew::addListener(this, spacebrew);
     
     ofBackground(255,255,255);
 	frameByframe = false;
@@ -50,7 +50,6 @@ void testApp::keyPressed  (int key){
             frameByframe=true;
             angerman.setPaused(frameByframe);
             spacebrew.sendBoolean("button", true);
-
 
 
     }
