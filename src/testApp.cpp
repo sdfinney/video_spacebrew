@@ -48,6 +48,7 @@ void testApp::keyPressed  (int key){
     switch(key){
         case 'f':
             frameByframe=!frameByframe;
+            frameByframe=true;
             angerman.setPaused(frameByframe);
             spacebrew.sendBoolean("button", true);
 
@@ -75,16 +76,24 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-
-
+	if(!frameByframe){
+        frameByframe = true;
+        spacebrew.sendBoolean("button", true);
+        angerman.setPaused(true);
+	}
 }
 
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
+	if(!frameByframe){
+        spacebrew.sendBoolean("button", false);
+    }
+    frameByframe = false;
+        angerman.setPaused(false);
+	}
 
 
-}
 
 //--------------------------------------------------------------
 
