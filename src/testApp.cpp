@@ -47,9 +47,10 @@ void testApp::onMessage( Spacebrew::Message & m ){
 void testApp::keyPressed  (int key){
     switch(key){
         case 'f':
-            frameByframe=true;
+            frameByframe=!frameByframe;
             angerman.setPaused(frameByframe);
             spacebrew.sendBoolean("button", true);
+
 
 
     }
